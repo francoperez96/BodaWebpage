@@ -270,9 +270,10 @@ section .inner {
 #dresscode { background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(201,168,76,.06),transparent),linear-gradient(180deg,var(--forest),#0a1e13); }
 .dress-word {
   font-family:'Cinzel',serif;
-  font-size:clamp(2.5rem,6vw,4.5rem);
-  letter-spacing:8px; color:var(--gold-light);
+  font-size:clamp(1.8rem,5vw,3rem);
+  letter-spacing:6px; color:var(--gold-light);
   font-weight:600; text-transform:uppercase;
+  width:100%; word-break:break-word;
 }
 .forbidden-section { width:100%; display:flex; flex-direction:column; align-items:center; gap:18px; }
 .forbidden-lbl { font-family:'Cinzel',serif; font-size:.78rem; letter-spacing:5px; color:var(--gold); text-transform:uppercase; }
@@ -421,7 +422,8 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
       <span class="hero-name">Fran</span>
     </div>
 
-    <div class="hero-date-group" style="margin-top: 20px;"> <p class="hero-date" style="line-height: 1.2; margin: 0;">SÁBADO</p>
+    <div class="hero-date-group" style="margin-top: 20px;">
+      <p class="hero-date" style="line-height: 1.2; margin: 0;">SÁBADO</p>
       <p class="hero-date" style="line-height: 1.2; margin: 0;">8 DE AGOSTO</p>
       <p class="hero-date" style="line-height: 1.2; margin: 0;">2026</p>
     </div>
@@ -478,9 +480,8 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
           Bella Vista &nbsp;·&nbsp; San Miguel<br>
           Buenos Aires
         </p>
-        <!-- ⚠️ Reemplazá con las coordenadas reales del salón -->
         <a
-          href="https://www.google.com/maps/search/?api=1&query=Corrientes+1682+Bella+Vista+San+Miguel+Buenos+Aires"
+          href="https://www.google.com/maps/place/Jano's+Bella+Vista/@-34.5569892,-58.6983552,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcbd01341e9f37:0x5d885aa13232ed66!8m2!3d-34.5569892!4d-58.6957749!16s%2Fg%2F11j24c46gb?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           class="maps-btn"
@@ -489,7 +490,7 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#c9a84c" stroke-width="1.8" fill="none"/>
             <circle cx="12" cy="9" r="2.5" stroke="#c9a84c" stroke-width="1.6" fill="none"/>
           </svg>
-          Ver en Google Maps
+          Janos Bella Vista 1
         </a>
       </div>
     </div>
@@ -498,7 +499,7 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
 
 <div class="lights-wrap" id="lights2"></div>
 
-<!-- ══════════════════ CONFIRMAR (entre fecha y programa) ══════════════════ -->
+<!-- ══════════════════ CONFIRMAR ══════════════════ -->
 <section id="confirmar">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,120)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,120)"/></svg></div>
@@ -517,7 +518,6 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
         Nos ayudás mucho confirmando tu presencia.<br>
         Hacé clic en el botón y completá el formulario.
       </p>
-      <!-- ⚠️ Reemplazá con tu link real de Google Form -->
       <a href="https://forms.gle/XXXXXXXXXXXXXXXXX" target="_blank" rel="noopener noreferrer" class="confirm-btn">
         Confirmar asistencia
       </a>
@@ -642,7 +642,8 @@ footer { text-align:center; padding:52px 24px; border-top:1px solid rgba(201,168
       </p>
       <div class="cbu-card">
         <div class="cbu-lbl">Alias</div>
-        <div class="cbu-alias">pau.y.fran.boda</div>
+        <!-- ✅ ID agregado para que copyCBU() lo encuentre -->
+        <div class="cbu-alias" id="cbu-alias">PEREZ.GARUTI.FRANCO</div>
         <button class="copy-btn" onclick="copyCBU()">Copiar Alias</button>
       </div>
     </div>
@@ -711,14 +712,38 @@ const obs=new IntersectionObserver(
 );
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Copy CBU */
+/* ✅ FIXED: Copy Alias — lee el texto del elemento con id="cbu-alias" */
 function copyCBU(){
-  const val=document.getElementById('cbu-number').textContent.replace(/\s/g,'');
-  navigator.clipboard.writeText(val).then(()=>{
-    const btn=document.querySelector('.copy-btn'), orig=btn.textContent;
-    btn.textContent='¡Copiado!'; btn.classList.add('copied');
-    setTimeout(()=>{ btn.textContent=orig; btn.classList.remove('copied'); },2200);
-  });
+  const el = document.getElementById('cbu-alias');
+  const val = el ? el.textContent.trim() : '';
+  if (!val) return;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(val).then(showCopied).catch(fallbackCopy(val));
+  } else {
+    fallbackCopy(val)();
+  }
+}
+
+function fallbackCopy(val) {
+  return function() {
+    const ta = document.createElement('textarea');
+    ta.value = val;
+    ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showCopied(); } catch(e) {}
+    document.body.removeChild(ta);
+  };
+}
+
+function showCopied() {
+  const btn = document.querySelector('.copy-btn');
+  if (!btn) return;
+  const orig = btn.textContent;
+  btn.textContent = '¡Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2200);
 }
 </script>
 </body>
