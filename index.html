@@ -6,9 +6,6 @@
 <title>Pau & Fran — 8 de Agosto 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════
-   TOKENS
-══════════════════════════════════════ */
 :root {
   --forest:     #1a3d2b;
   --deep:       #0a1e13;
@@ -21,10 +18,6 @@
   --cream:      #f5f0e8;
   --white:      #ffffff;
 }
-
-/* ══════════════════════════════════════
-   RESET & BASE — MOBILE FIRST
-══════════════════════════════════════ */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; font-size:16px; }
 body {
@@ -35,10 +28,6 @@ body {
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
-
-/* ══════════════════════════════════════
-   LAYOUT COLUMN
-══════════════════════════════════════ */
 .site-col {
   width: 100%;
   max-width: 780px;
@@ -54,10 +43,6 @@ body {
   }
   .site-col { box-shadow: 0 0 80px rgba(0,0,0,.5); }
 }
-
-/* ══════════════════════════════════════
-   PARTICLES
-══════════════════════════════════════ */
 #particles { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
 .particle {
   position:absolute; border-radius:50%;
@@ -70,10 +55,6 @@ body {
   90%  { opacity:.15; }
   100% { transform:translateY(-10vh) scale(1.4); opacity:0; }
 }
-
-/* ══════════════════════════════════════
-   STRING LIGHTS
-══════════════════════════════════════ */
 .lights-wrap {
   width:100%; height:70px;
   overflow:hidden; pointer-events:none;
@@ -88,10 +69,6 @@ body {
 .bulb:nth-child(3n)   { animation-duration:3.6s; animation-delay:0s; }
 .bulb:nth-child(3n+1) { animation-duration:4.4s; animation-delay:1.2s; }
 .bulb:nth-child(3n+2) { animation-duration:2.8s; animation-delay:2.1s; }
-
-/* ══════════════════════════════════════
-   SECTION BASE  (mobile-first)
-══════════════════════════════════════ */
 section {
   position: relative;
   overflow: hidden;
@@ -109,12 +86,6 @@ section .inner {
   align-items: center;
   gap: 18px;
 }
-
-/* ══════════════════════════════════════
-   BOTANICAL SIDE PANELS
-   — width grows with screen; section padding
-     always matches so text never overlaps
-══════════════════════════════════════ */
 .bot-panel {
   position: absolute; top: 0; bottom: 0;
   pointer-events: none; z-index: 1;
@@ -124,7 +95,6 @@ section .inner {
 .bot-panel.left  { left: 0; }
 .bot-panel.right { right: 0; transform: scaleX(-1); }
 .bot-panel svg   { width:100%; height:100%; }
-
 @media (min-width: 480px) {
   .bot-panel { width: 72px; }
   section    { padding-left: 84px; padding-right: 84px; }
@@ -137,17 +107,9 @@ section .inner {
   .bot-panel { width: 150px; }
   section    { padding-left: 168px; padding-right: 168px; }
 }
-
-/* ══════════════════════════════════════
-   REUSABLE DECORATIVE
-══════════════════════════════════════ */
 .divider    { width:160px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
 .divider-sm { width:60px;  height:1px; background:linear-gradient(90deg,transparent,var(--gold-light),transparent); }
 .ornament   { color:var(--gold); font-size:.85rem; letter-spacing:8px; opacity:.6; }
-
-/* ══════════════════════════════════════
-   CARD
-══════════════════════════════════════ */
 .card-inv {
   background: linear-gradient(145deg,rgba(45,106,69,.22),rgba(10,30,19,.78));
   border: 1px solid var(--gold-dim);
@@ -165,13 +127,8 @@ section .inner {
 }
 .card-inv::before { top:10px; left:10px;     border-width:1px 0 0 1px; }
 .card-inv::after  { bottom:10px; right:10px; border-width:0 1px 1px 0; }
-
 @media (min-width: 480px) { .card-inv { padding:38px 28px; gap:18px; } }
 @media (min-width: 640px) { .card-inv { padding:46px 40px; } }
-
-/* ══════════════════════════════════════
-   TYPOGRAPHY UTILITIES
-══════════════════════════════════════ */
 .lbl {
   font-family: 'Cinzel', serif;
   font-size: .76rem;
@@ -190,10 +147,6 @@ section .inner {
   line-height: 1.8; letter-spacing: .2px;
   max-width: 340px;
 }
-
-/* ══════════════════════════════════════
-   HERO
-══════════════════════════════════════ */
 #hero {
   padding-bottom: 96px;
   background:
@@ -254,12 +207,7 @@ section .inner {
 }
 @keyframes pulse-line { 0%,100%{opacity:.3;transform:scaleY(.7)} 50%{opacity:1;transform:scaleY(1)} }
 @keyframes fade-up    { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-
-/* ══════════════════════════════════════
-   FECHA
-══════════════════════════════════════ */
 #fecha { background:linear-gradient(180deg,#050e08 0%,var(--forest) 100%); }
-
 .date-grid {
   display:grid;
   grid-template-columns:1fr 1px 1fr;
@@ -267,7 +215,6 @@ section .inner {
   gap:0 16px; width:100%;
 }
 @media (min-width:480px) { .date-grid { gap:0 28px; } }
-
 .date-side  { display:flex; flex-direction:column; gap:12px; }
 .date-lbl   { font-family:'Cinzel',serif; font-size:.68rem; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
 .date-val   { font-family:'Cormorant Garamond',serif; font-size:clamp(1rem,3.8vw,1.75rem); color:var(--cream); line-height:1.2; }
@@ -275,7 +222,6 @@ section .inner {
 .date-month { font-family:'Cinzel',serif; font-size:clamp(.66rem,1.9vw,.82rem); letter-spacing:4px; color:var(--gold); text-transform:uppercase; margin-top:4px; }
 .vsep       { width:1px; height:90px; background:linear-gradient(180deg,transparent,var(--gold),transparent); margin:0 auto; }
 @media (min-width:480px) { .vsep { height:115px; } }
-
 .address-block {
   border-top:1px solid rgba(201,168,76,.15);
   padding-top:18px; width:100%;
@@ -297,10 +243,6 @@ section .inner {
 }
 .maps-btn:hover { background:rgba(201,168,76,.12); border-color:var(--gold); }
 .maps-btn svg   { flex-shrink:0; }
-
-/* ══════════════════════════════════════
-   CONFIRMAR
-══════════════════════════════════════ */
 #confirmar {
   background:
     radial-gradient(ellipse 60% 60% at 50% 40%,rgba(45,106,69,.25),transparent),
@@ -321,10 +263,6 @@ section .inner {
 .confirm-btn:hover::before { opacity:1; }
 .confirm-btn:hover { box-shadow:0 4px 32px rgba(201,168,76,.2); transform:translateY(-2px); }
 .deadline-note { font-size:clamp(.82rem,2.5vw,.92rem); color:var(--sage); letter-spacing:.3px; }
-
-/* ══════════════════════════════════════
-   PROGRAMA
-══════════════════════════════════════ */
 #programa {
   min-height: auto;
   padding-top:65px; padding-bottom:65px;
@@ -364,10 +302,6 @@ section .inner {
 .tl-item.flip .tl-left  { order:2; text-align:left;  padding-left:16px; padding-right:0; }
 .tl-item.flip .tl-right { order:0; text-align:right; padding-right:16px; padding-left:0; }
 .tl-item.flip .tl-dot   { order:1; }
-
-/* ══════════════════════════════════════
-   DRESSCODE
-══════════════════════════════════════ */
 #dresscode {
   background:
     radial-gradient(ellipse 70% 60% at 50% 50%,rgba(201,168,76,.06),transparent),
@@ -380,17 +314,54 @@ section .inner {
   font-weight:600; text-transform:uppercase;
   width:100%; word-break:break-word;
 }
-.forbidden-section { width:100%; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.forbidden-section {
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  text-align:center;
+}
 .forbidden-lbl { font-family:'Cinzel',serif; font-size:.7rem; letter-spacing:4px; color:var(--gold); text-transform:uppercase; }
-.swatches      { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-.chip          { display:flex; flex-direction:column; align-items:center; gap:7px; }
-.swatch        { width:44px; height:44px; border-radius:50%; border:1px solid rgba(201,168,76,.3); position:relative; }
-.swatch::after { content:'✕'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.75); font-size:.95rem; }
-.chip-name     { font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
-
-/* ══════════════════════════════════════
-   REGALOS
-══════════════════════════════════════ */
+.swatches {
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  align-items:flex-start;
+  flex-wrap:wrap;
+  width:100%;
+}
+.chip {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  flex:0 0 70px;
+  width:70px;
+}
+.swatch {
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid rgba(201,168,76,.3);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.swatch::after {
+  content:'✕';
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(255,255,255,.75);
+  font-size:.95rem;
+}
+/* FIX: ✕ visible sobre fondo blanco */
+.swatch.dark-x::after { color:rgba(40,40,40,.65); }
+.chip-name { font-family:'Cinzel',serif; font-size:.58rem; letter-spacing:2px; color:var(--gold); text-transform:uppercase; }
 #regalos { background:linear-gradient(180deg,#0a1e13,var(--forest)); }
 .cbu-card {
   background:rgba(201,168,76,.09);
@@ -410,10 +381,6 @@ section .inner {
 }
 .copy-btn:hover  { background:rgba(201,168,76,.14); border-color:var(--gold); }
 .copy-btn.copied { color:var(--mint); border-color:var(--mint); }
-
-/* ══════════════════════════════════════
-   FOOTER
-══════════════════════════════════════ */
 footer {
   text-align:center; padding:40px 20px;
   border-top:1px solid rgba(201,168,76,.12);
@@ -421,29 +388,53 @@ footer {
 }
 .footer-names { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,7vw,2.7rem); font-style:italic; font-weight:300; color:var(--gold); letter-spacing:3px; }
 .footer-sub   { font-family:'Cinzel',serif; font-size:clamp(.65rem,1.9vw,.8rem); letter-spacing:4px; color:var(--sage); text-transform:uppercase; margin-top:10px; }
-
-/* ══════════════════════════════════════
-   SCROLL REVEAL
-══════════════════════════════════════ */
 .reveal { opacity:0; transform:translateY(22px); transition:opacity .85s ease,transform .85s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
-
-/* ══════════════════════════════════════
-   TINY PHONES (< 360px) safety net
-══════════════════════════════════════ */
 @media (max-width:359px) {
   .hero-name  { font-size:3.6rem; }
   .date-num   { font-size:3.8rem; }
   .dress-word { font-size:1.35rem; letter-spacing:3px; }
   .tl-time, .tl-name { font-size:.88rem; }
 }
+/* ══ PLAYLIST ══ */
+#playlist {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(45,106,69,.2), transparent),
+    linear-gradient(180deg, #0a1e13, var(--forest));
+}
+.spotify-embed { width:100%; border-radius:12px; overflow:hidden; border:1px solid rgba(201,168,76,.2); }
+.spotify-embed iframe { width:100%; display:block; border:none; }
+.spotify-placeholder {
+  background:rgba(30,215,96,.07); border:1px dashed rgba(30,215,96,.3);
+  border-radius:12px; padding:32px 20px; width:100%;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+}
+.spotify-icon {
+  width:52px; height:52px; background:#1DB954; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 24px rgba(29,185,84,.4);
+}
+.spotify-input {
+  width:100%; background:rgba(255,255,255,.06);
+  border:1px solid rgba(201,168,76,.3); color:var(--cream);
+  font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:2px;
+  padding:12px 14px; outline:none; text-align:center;
+}
+.spotify-input::placeholder { color:var(--sage); opacity:.7; }
+.spotify-input:focus { border-color:rgba(201,168,76,.7); }
+.spotify-load-btn {
+  background:#1DB954; border:none; color:#000;
+  font-family:'Cinzel',serif; font-size:.72rem; letter-spacing:3px;
+  text-transform:uppercase; padding:12px 24px; cursor:pointer;
+  transition:all .3s; font-weight:600; min-height:44px;
+}
+.spotify-load-btn:hover { background:#1ed760; transform:translateY(-1px); }
+.spotify-hint { font-family:'Cinzel',serif; font-size:.62rem; letter-spacing:2px; color:var(--sage); text-transform:uppercase; opacity:.75; }
+.spotify-note { font-size:clamp(.82rem,2.5vw,.95rem); color:var(--sage); letter-spacing:.3px; line-height:1.7; max-width:320px; }
 </style>
 </head>
 <body>
-
 <div id="particles"></div>
-
-<!-- ═══════ BOTANICAL SVG DEFS ═══════ -->
 <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <g id="branch-left">
@@ -524,7 +515,6 @@ footer {
 
 <div class="site-col">
 
-<!-- ══ HERO ══ -->
 <section id="hero">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".55"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".55"/></svg></div>
@@ -556,7 +546,6 @@ footer {
 
 <div class="lights-wrap" id="lights1"></div>
 
-<!-- ══ FECHA ══ -->
 <section id="fecha">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,80)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,80)"/></svg></div>
@@ -578,8 +567,7 @@ footer {
       </div>
       <div class="address-block">
         <p class="address-text">Corrientes 1682<br>Bella Vista &nbsp;·&nbsp; San Miguel<br>Buenos Aires</p>
-        <a href="https://www.google.com/maps/place/Jano's+Bella+Vista/@-34.5569892,-58.6983552,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcbd01341e9f37:0x5d885aa13232ed66!8m2!3d-34.5569892!4d-58.6957749!16s%2Fg%2F11j24c46gb?entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D"
-          target="_blank" rel="noopener noreferrer" class="maps-btn">
+        <a href="https://www.google.com/maps/place/Jano's+Bella+Vista/@-34.5569892,-58.6983552,17z/data=!4m6!3m5!1s0x95bcbd01341e9f37:0x5d885aa13232ed66!8m2!3d-34.5569892!4d-58.6957749!16s%2Fg%2F11j24c46gb?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="maps-btn">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#c9a84c" stroke-width="1.8" fill="none"/>
             <circle cx="12" cy="9" r="2.5" stroke="#c9a84c" stroke-width="1.6" fill="none"/>
@@ -593,7 +581,6 @@ footer {
 
 <div class="lights-wrap" id="lights2"></div>
 
-<!-- ══ CONFIRMAR ══ -->
 <section id="confirmar">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,120)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,120)"/></svg></div>
@@ -616,7 +603,6 @@ footer {
 
 <div class="lights-wrap" id="lights3"></div>
 
-<!-- ══ PROGRAMA ══ -->
 <section id="programa">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".4" transform="translate(0,160)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".4" transform="translate(0,160)"/></svg></div>
@@ -626,7 +612,6 @@ footer {
     <div class="divider"></div>
     <div class="punctual-badge">Pedimos puntualidad</div>
     <div class="timeline">
-      <!-- Ceremonia -->
       <div class="tl-item">
         <div class="tl-left"><div class="tl-time">20:00</div><div class="tl-name">Ceremonia</div></div>
         <div class="tl-dot"></div>
@@ -638,7 +623,6 @@ footer {
           </svg>
         </div>
       </div>
-      <!-- Recepción -->
       <div class="tl-item flip">
         <div class="tl-left">
           <svg width="33" height="38" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.8;display:inline-block;">
@@ -652,7 +636,6 @@ footer {
         <div class="tl-dot"></div>
         <div class="tl-right"><div class="tl-time">21:00</div><div class="tl-name">Recepción</div></div>
       </div>
-      <!-- Fiesta -->
       <div class="tl-item">
         <div class="tl-left"><div class="tl-time">23:00</div><div class="tl-name">Fiesta</div></div>
         <div class="tl-dot"></div>
@@ -675,7 +658,6 @@ footer {
 
 <div class="lights-wrap" id="lights4"></div>
 
-<!-- ══ DRESSCODE ══ -->
 <section id="dresscode">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".5" transform="translate(0,40)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".5" transform="translate(0,40)"/></svg></div>
@@ -693,9 +675,11 @@ footer {
       <div class="forbidden-section">
         <p class="forbidden-lbl">Colores no permitidos</p>
         <div class="swatches">
-          <div class="chip"><div class="swatch" style="background:#ffffff;"></div><span class="chip-name">Blanco</span></div>
-          <div class="chip"><div class="swatch" style="background:linear-gradient(135deg,#fff 49%,#111 51%);"></div><span class="chip-name">Blanco &amp; Negro</span></div>
-          <div class="chip"><div class="swatch" style="background:#e8e8e8;"></div><span class="chip-name">Marfil</span></div>
+          <!-- FIX: clase dark-x para que el ✕ sea visible sobre blanco -->
+          <div class="chip"><div class="swatch dark-x" style="background:#ffffff;"></div><span class="chip-name">Blanco</span></div>
+          <div class="chip"><div class="swatch" style="background:#152953;"></div><span class="chip-name">Azul</span></div>
+          <div class="chip"><div class="swatch" style="background:#3B1C32;"></div><span class="chip-name">Violeta</span></div>
+          <div class="chip"><div class="swatch" style="background:#472127;"></div><span class="chip-name">Bordo</span></div>
         </div>
       </div>
     </div>
@@ -704,7 +688,25 @@ footer {
 
 <div class="lights-wrap" id="lights5"></div>
 
-<!-- ══ REGALOS ══ -->
+<!-- ══ PLAYLIST ══ -->
+<section id="playlist">
+  <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,100)"/></svg></div>
+  <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,100)"/></svg></div>
+  <div class="inner reveal">
+    <div class="card-inv">
+      <p class="lbl">Nuestra música</p>
+      <h2 class="hdg">La playlist</h2>
+      <div class="divider"></div>
+      <p class="spotify-note">Escuchá la música que va a sonar esa noche.<br>¡Y si querés sugerir una canción, escribinos!</p>
+      <div id="spotify-container" class="spotify-embed">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7fy296fzi6Yl8qqAqGRcIO?utm_source=generator" width="100%" height="500" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="lights-wrap" id="lights6"></div>
+
 <section id="regalos">
   <div class="bot-panel left"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,130)"/></svg></div>
   <div class="bot-panel right"><svg viewBox="0 0 120 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><use href="#branch-left" opacity=".45" transform="translate(0,130)"/></svg></div>
@@ -723,7 +725,7 @@ footer {
   </div>
 </section>
 
-<div class="lights-wrap" id="lights6"></div>
+<div class="lights-wrap" id="lights7"></div>
 
 <footer>
   <span class="ornament" style="margin-bottom:14px;display:block;">✦</span>
@@ -731,10 +733,9 @@ footer {
   <p class="footer-sub">08 · 08 · 2026 — Bella Vista San Miguel</p>
 </footer>
 
-</div><!-- /site-col -->
+</div>
 
 <script>
-/* ── Particles ── */
 const pc = document.getElementById('particles');
 for (let i = 0; i < 28; i++) {
   const p = document.createElement('div'); p.className = 'particle';
@@ -742,8 +743,6 @@ for (let i = 0; i < 28; i++) {
   p.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;animation-duration:${Math.random()*14+8}s;animation-delay:${Math.random()*12}s;`;
   pc.appendChild(p);
 }
-
-/* ── String Lights ── */
 function buildLights(id) {
   const wrap = document.getElementById(id); if (!wrap) return;
   const W = wrap.offsetWidth || window.innerWidth, H = 70;
@@ -776,19 +775,34 @@ function buildLights(id) {
   });
   wrap.innerHTML = ''; wrap.appendChild(svg);
 }
-const lids = ['lights1','lights2','lights3','lights4','lights5','lights6'];
+const lids = ['lights1','lights2','lights3','lights4','lights5','lights6','lights7'];
 function buildAll() { lids.forEach(buildLights); }
 window.addEventListener('load', buildAll);
 window.addEventListener('resize', buildAll);
-
-/* ── Scroll Reveal ── */
 const obs = new IntersectionObserver(
   entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
   { threshold: .08 }
 );
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-/* ── Copy Alias ── */
+function loadSpotify() {
+  const input = document.getElementById('spotify-url');
+  const url = input ? input.value.trim() : '';
+  if (!url) return;
+  // Extract playlist/album/track ID from Spotify URL
+  const match = url.match(/spotify\.com\/(playlist|album|track|artist)\/([a-zA-Z0-9]+)/);
+  if (!match) {
+    input.style.borderColor = 'rgba(255,80,80,.7)';
+    input.placeholder = 'URL inválida. Intentá de nuevo.';
+    input.value = '';
+    setTimeout(() => { input.style.borderColor = ''; input.placeholder = 'https://open.spotify.com/playlist/...'; }, 2500);
+    return;
+  }
+  const type = match[1], id = match[2];
+  const embedUrl = `https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0`;
+  const container = document.getElementById('spotify-container');
+  container.innerHTML = `<div class="spotify-embed"><iframe src="${embedUrl}" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media; autoplay; clipboard-write; fullscreen; picture-in-picture" loading="lazy"></iframe></div>`;
+}
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 function copyCBU() {
   const el = document.getElementById('cbu-alias');
   const val = el ? el.textContent.trim() : '';
@@ -800,8 +814,7 @@ function copyCBU() {
 function fallbackCopy(val) {
   return function() {
     const ta = document.createElement('textarea');
-    ta.value = val;
-    ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
+    ta.value = val; ta.style.cssText = 'position:fixed;top:-9999px;left:-9999px;opacity:0;';
     document.body.appendChild(ta); ta.select();
     try { document.execCommand('copy'); showCopied(); } catch(e) {}
     document.body.removeChild(ta);
